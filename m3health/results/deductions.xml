@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<sparql xmlns="http://www.w3.org/2005/sparql-results#">
+  <head>
+    <variable name="name"/>
+    <variable name="value"/>
+    <variable name="unit"/>
+    <variable name="inferType"/>
+    <variable name="deduce"/>
+    <variable name="suggest"/>
+    <variable name="suggest_comment"/>
+  </head>
+  <results>
+    <result>
+      <binding name="name">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">temperature</literal>
+      </binding>
+      <binding name="value">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#decimal">39.1</literal>
+      </binding>
+      <binding name="unit">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">Cel</literal>
+      </binding>
+      <binding name="inferType">
+        <literal xml:lang="en">Body Temperature</literal>
+      </binding>
+      <binding name="deduce">
+        <literal xml:lang="en">CriticallyHighFever</literal>
+      </binding>
+      <binding name="suggest">
+        <literal xml:lang="en">Pepper mint</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="name">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">temperature</literal>
+      </binding>
+      <binding name="value">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#decimal">39.1</literal>
+      </binding>
+      <binding name="unit">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">Cel</literal>
+      </binding>
+      <binding name="inferType">
+        <literal xml:lang="en">Body Temperature</literal>
+      </binding>
+      <binding name="deduce">
+        <literal xml:lang="en">CriticallyHighFever</literal>
+      </binding>
+      <binding name="suggest">
+        <literal xml:lang="en">Thyme</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="name">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">temperature</literal>
+      </binding>
+      <binding name="value">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#decimal">39.1</literal>
+      </binding>
+      <binding name="unit">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">Cel</literal>
+      </binding>
+      <binding name="inferType">
+        <literal xml:lang="en">Body Temperature</literal>
+      </binding>
+      <binding name="deduce">
+        <literal xml:lang="en">CriticallyHighFever</literal>
+      </binding>
+      <binding name="suggest">
+        <literal xml:lang="en">Cinnamon</literal>
+      </binding>
+      <binding name="suggest_comment">
+        <literal xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="name">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">temperature</literal>
+      </binding>
+      <binding name="value">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#decimal">39.1</literal>
+      </binding>
+      <binding name="unit">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">Cel</literal>
+      </binding>
+      <binding name="inferType">
+        <literal xml:lang="en">Body Temperature</literal>
+      </binding>
+      <binding name="deduce">
+        <literal xml:lang="en">CriticallyHighFever</literal>
+      </binding>
+      <binding name="suggest">
+        <literal xml:lang="en">Honey</literal>
+      </binding>
+      <binding name="suggest_comment">
+        <literal xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is normally used in our daily life for treatment of hearing loss, bad breath, fatigue, weight loss, pimples, influenza, ingestion, heart diseases, toothache, hair loss, bladder infections, infertility, etc. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="name">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">temperature</literal>
+      </binding>
+      <binding name="value">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#decimal">39.1</literal>
+      </binding>
+      <binding name="unit">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">Cel</literal>
+      </binding>
+      <binding name="inferType">
+        <literal xml:lang="en">Body Temperature</literal>
+      </binding>
+      <binding name="deduce">
+        <literal xml:lang="en">CriticallyHighFever</literal>
+      </binding>
+      <binding name="suggest">
+        <literal xml:lang="en">Ginger</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="name">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">temperature</literal>
+      </binding>
+      <binding name="value">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#decimal">39.1</literal>
+      </binding>
+      <binding name="unit">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">Cel</literal>
+      </binding>
+      <binding name="inferType">
+        <literal xml:lang="en">Body Temperature</literal>
+      </binding>
+      <binding name="deduce">
+        <literal xml:lang="en">CriticallyHighFever</literal>
+      </binding>
+      <binding name="suggest">
+        <literal xml:lang="en">Lemon</literal>
+      </binding>
+      <binding name="suggest_comment">
+        <literal xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</literal>
+      </binding>
+    </result>
+  </results>
+</sparql>
