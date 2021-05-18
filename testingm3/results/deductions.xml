@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<sparql xmlns="http://www.w3.org/2005/sparql-results#">
+  <head>
+    <variable name="name"/>
+    <variable name="value"/>
+    <variable name="unit"/>
+    <variable name="inferType"/>
+    <variable name="deduce"/>
+    <variable name="suggest"/>
+    <variable name="suggest_comment"/>
+  </head>
+  <results>
+    <result>
+      <binding name="name">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">temperature</literal>
+      </binding>
+      <binding name="value">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#decimal">32.6</literal>
+      </binding>
+      <binding name="unit">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">Cel</literal>
+      </binding>
+      <binding name="inferType">
+        <literal xml:lang="en">Room Temperature</literal>
+      </binding>
+      <binding name="deduce">
+        <literal xml:lang="en">Heat</literal>
+      </binding>
+      <binding name="suggest">
+        <literal xml:lang="en">Water</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="name">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">temperature</literal>
+      </binding>
+      <binding name="value">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#decimal">32.6</literal>
+      </binding>
+      <binding name="unit">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">Cel</literal>
+      </binding>
+      <binding name="inferType">
+        <literal xml:lang="en">Room Temperature</literal>
+      </binding>
+      <binding name="deduce">
+        <literal xml:lang="en">Heat</literal>
+      </binding>
+      <binding name="suggest">
+        <literal xml:lang="en">Ginger</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="name">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">temperature</literal>
+      </binding>
+      <binding name="value">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#decimal">32.6</literal>
+      </binding>
+      <binding name="unit">
+        <literal datatype="http://www.w3.org/2001/XMLSchema#string">Cel</literal>
+      </binding>
+      <binding name="inferType">
+        <literal xml:lang="en">Room Temperature</literal>
+      </binding>
+      <binding name="deduce">
+        <literal xml:lang="en">AboveZeroTemperature</literal>
+      </binding>
+      <binding name="suggest">
+        <literal xml:lang="en">Ginger</literal>
+      </binding>
+    </result>
+  </results>
+</sparql>

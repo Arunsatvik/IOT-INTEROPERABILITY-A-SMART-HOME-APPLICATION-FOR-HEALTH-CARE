@@ -1,0 +1,20 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:m3="http://sensormeasurement.appspot.com/m3#" > 
+  <rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#home">
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#FeatureOfInterest"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#null">
+    <m3:observes rdf:resource="http://sensormeasurement.appspot.com/m3#home"/>
+    <m3:produces rdf:resource="http://sensormeasurement.appspot.com/m3#Measurement0"/>
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#Measurement0">
+    <m3:hasUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cel</m3:hasUnit>
+    <m3:hasDateTimeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">0.0</m3:hasDateTimeValue>
+    <m3:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.6</m3:hasValue>
+    <m3:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature</m3:hasName>
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Measurement"/>
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#RoomTemperature"/>
+  </rdf:Description>
+</rdf:RDF>

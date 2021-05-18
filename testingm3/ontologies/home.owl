@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY m3   "http://sensormeasurement.appspot.com/m3#" >
+         <!ENTITY home "http://sensormeasurement.appspot.com/ont/m3/home#"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY dogont "http://elite.polito.it/ontologies/dogont.owl#">
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY fruit_tropical "http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#" >
+         <!ENTITY obo "http://purl.obolibrary.org/obo/">    
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY registry "http://ontology-for-registry-of-children-with-special-needs.googlecode.com/svn-history/r23/trunk/Registry3.4.4.owl">
+         <!ENTITY hospital "http://www.personal.psu.edu/wxy119/hospital_ontology.owl">
+         <!ENTITY dbpedia "http://dbpedia.org/ontology/">
+         <!ENTITY food_smart_product "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#"> 
+         <!ENTITY cito "http://purl.org/spar/cito/">
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY acco "http://purl.org/acco/ns#">
+         <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">   
+         <!ENTITY txn	"http://lod.taxonconcept.org/ontology/txn.owl#">  
+        
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&home;"
+        xmlns:m3="&m3;"
+        xmlns:dogont="&dogont;"
+        xmlns:food_smart_product="&food_smart_product;"
+        xml:base="&home;"
+        xmlns:home="&home;" 
+        xmlns:hospital="&hospital;"
+        xmlns:obo="&obo;"
+        xmlns:txn="&txn;"
+        xmlns:skos="&skos;"
+        xmlns:acco="&acco;"
+        xmlns:registry="&registry;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:foaf="&foaf;"
+        xmlns:dbpedia="&dbpedia;"
+        xmlns:fruit_tropical="&fruit_tropical;"
+        xmlns:sweet_season="&sweet_season;"
+        xmlns:food="&food;"
+        xmlns:cito="&cito;"
+        xmlns:owl="&owl;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+       	
+
+	<owl:Ontology rdf:about="&home;">
+		<rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+		<dc:title xml:lang="en">home</dc:title>
+		<dc:description xml:lang="en">The home ontology</dc:description>
+		<dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Amelie Gyrard.</dc:creator>
+		<dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dc:modified> 
+		<dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-09-14</dc:issued>  		
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">Version 0.2</owl:versionInfo>
+		<rdfs:comment xml:lang="en">Description of activities according to the season, the meteo.</rdfs:comment>
+		<vs:term_status>Work in progress</vs:term_status>
+		<vann:preferredNamespacePrefix>home</vann:preferredNamespacePrefix> 
+	    <vann:preferredNamespaceUri>http://sensormeasurement.appspot.com/home#</vann:preferredNamespaceUri>
+		<cito:citesAsDataSource>
+  			<foaf:Document rdf:about="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#">
+   				<rdfs:label>Inspired by  [Hastings et al. 2011]. </rdfs:label>
+   				<dcterms:description xml:lang="en">The home ontology has been inspired by this work.</dcterms:description>	
+   			</foaf:Document>
+		</cito:citesAsDataSource>		
+		<cito:citesAsDataSource>
+  			<foaf:Document rdf:about="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+   				<rdfs:label>Inspired by "Ontology-based management of the telehealth smart home, dedicated to elderly in loss of cognitive autonomy" and "Le role de l'ontologie de la tache dans un habitat en tele sante" [Lafti et al. 2007]. </rdfs:label>
+   				<dcterms:description xml:lang="en">The home ontology has been inspired by this work.</dcterms:description>	
+   			</foaf:Document>
+		</cito:citesAsDataSource>
+	</owl:Ontology>
+	
+	<!-- 
+	Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+    included in this distribution in the file called "COPYING". If not, 
+    see <http://www.gnu.org/licenses/>.
+
+    Contact Information
+    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+  
+  <owl:Class rdf:ID="TV">		
+		<rdfs:label xml:lang="en">TV</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the television. 
+Rule: IF m3:Power EQUAL 221 m3:Watt THEN SmartTV</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<skos:prefLabel xml:lang="en">TV</skos:prefLabel>
+		<skos:altLabel xml:lang="en">Smart TV</skos:altLabel>
+		<dc:description xml:lang="en"> Energy Efficient Computing: A Comparison of Raspberry PI with Modern Devices [Shah et al. 2015]</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+					
+	<owl:Class rdf:ID="MobilePhone">		
+		<rdfs:label xml:lang="en">Mobile Phone</rdfs:label>
+		<rdfs:comment xml:lang="en">Mobile Phone can be used to understand emotion or even stress with voice data [Lu et al. 2012] [Chang et al. 2011]
+A mobile phone contains various sensors such as accelerometers to deduce activities, etc. E.g., the phone is used to correlate the mood and phone usage. Paper: Moodscope: Building a Mood Sensor from Smartphone Usage Patterns [LiKamWa et al. 2013, ACM International conference on Mobile systems, applications, and services (MobiSys - A-Rank Conference)]</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#EmotionM2MDevice"/>	
+		<skos:prefLabel xml:lang="en">Mobile Phone</skos:prefLabel>
+		<skos:altLabel xml:lang="en">Android Mobile Phone</skos:altLabel>
+		<skos:altLabel xml:lang="en">IPhone Mobile Phone</skos:altLabel>
+		<dc:description xml:lang="en"> Energy Efficient Computing: A Comparison of Raspberry PI with Modern Devices [Shah et al. 2015]</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified>
+		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-03-26</dcterms:issued> 	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/mobilePhone.png"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ScreenSensor">		
+		<rdfs:label xml:lang="en">Screen Sensor, Touch Screen Sensor, Screen Monitor, Computer Monitor, PC Monitor</rdfs:label>
+		<rdfs:comment xml:lang="en">Screen Sensor can be embedded within robots (e.g., ASTRO robot)</rdfs:comment>
+		<dc:description xml:lang="en">Paper: Improving domiciliary robotic services by integrating the ASTRO Robot in an AmIInfrastructure [Cavallo et al. 2017]
+</dc:description>
+<skos:prefLabel xml:lang="en">Screen</skos:prefLabel>
+		<skos:altLabel xml:lang="en">Screen Monitor</skos:altLabel>
+		<skos:altLabel xml:lang="en">Computer Monitor</skos:altLabel>
+		<skos:altLabel xml:lang="en">Touch Screen Sensor</skos:altLabel>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#RoboticM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>	
+		<dc:description xml:lang="en">Energy Efficient Computing: A Comparison of Raspberry PI with Modern Devices [Shah et al. 2015]</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-07-30</dcterms:issued>
+        <txn:hasImage rdf:resource="http://linkedopenreasoning.appspot.com/images/sensor/TouchScreenSensor.png"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Tablet">		
+		<rdfs:label xml:lang="en">Tablet</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the tablet (IPhone, Android). 
+Rule: IF m3:Power EQUAL 221 m3:Watt THEN SmartTV</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<skos:prefLabel xml:lang="en">TV</skos:prefLabel>
+		<skos:altLabel xml:lang="en">Smart TV</skos:altLabel>
+		<dc:description xml:lang="en">Energy Efficient Computing: A Comparison of Raspberry PI with Modern Devices [Shah et al. 2015]</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="Computer">		
+		<rdfs:label xml:lang="en">Computer</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the laptop. 
+Rule: IF m3:Power EQUAL 50 m3:Watt THEN m3:Laptop</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<skos:prefLabel xml:lang="en">Computer</skos:prefLabel>
+		<skos:altLabel xml:lang="en">PC</skos:altLabel>
+		<skos:altLabel xml:lang="en">Laptop</skos:altLabel>
+		<dc:description xml:lang="en"> Energy Efficient Computing: A Comparison of Raspberry PI with Modern Devices [Shah et al. 2015]</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:modified> 
+		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-03-26</dcterms:issued> 
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RaspberryPI">		
+		<rdfs:label xml:lang="en">Raspberry PI (Model B)</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the Raspberry PI. 
+ Rule: IF m3:Power EQUAL 2.25 m3:Watt THEN m3:RaspberryPI</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<dc:description xml:lang="en">Energy Efficient Computing: A Comparison of Raspberry PI with Modern Devices [Shah et al. 2015]</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:modified> 
+		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:issued> 
+	</owl:Class>
+
+	
+	<owl:Class rdf:ID="Telephone">		
+		<rdfs:label xml:lang="en">Telephone</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the Telephone.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+  
+   <!-- ################################################ THERMAL CONDUCTIVITY ############################################################################ -->
+	
+	<owl:Class rdf:ID="ThermalConductivityAir">		
+		<rdfs:label xml:lang="en">Thermal Conductivity Air</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ThermalConductivity EQUAL 0.026 m3:WattPerMeterKelvin THEN ThermalConductivityAir</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://en.wikipedia.org/wiki/Thermal_conductivity</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ThermalConductivityStyrofoam">		
+		<rdfs:label xml:lang="en">Thermal Conductivity Styrofoam</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ThermalConductivity EQUAL 0.033 m3:WattPerMeterKelvin THEN ThermalConductivityStyrofoam</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://en.wikipedia.org/wiki/Thermal_conductivity</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ThermalConductivityWater">		
+		<rdfs:label xml:lang="en">Thermal Conductivity Water</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ThermalConductivity EQUAL 0.6089 m3:WattPerMeterKelvin THEN ThermalConductivityWater</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://en.wikipedia.org/wiki/Thermal_conductivity</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ThermalConductivityConcrete">		
+		<rdfs:label xml:lang="en">Thermal Conductivity Concrete</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ThermalConductivity EQUAL 0.92 m3:WattPerMeterKelvin THEN ThermalConductivityConcrete</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://en.wikipedia.org/wiki/Thermal_conductivity</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ThermalConductivityCopper">		
+		<rdfs:label xml:lang="en">Thermal Conductivity Copper</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ThermalConductivity EQUAL 384.1 m3:WattPerMeterKelvin THEN ThermalConductivityCopper</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://en.wikipedia.org/wiki/Thermal_conductivity</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+  
+  <owl:Class rdf:ID="ThermalConductivityNaturalDiamond">		
+		<rdfs:label xml:lang="en">Thermal Conductivity Natural Diamond</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ThermalConductivity BETWEEN 895 AND 1350 m3:WattPerMeterKelvin THEN ThermalConductivityNaturalDiamond</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://en.wikipedia.org/wiki/Thermal_conductivity</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+   <!-- ################################################ ELECTRICAL RESITAANCE OHM ############################################################################ -->
+	
+	<owl:Class rdf:ID="ResistanceTypeDrySkin">		
+		<rdfs:label xml:lang="en">Resistance Type Dry Skin</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricalResistance BETWEEN 100000 AND 600000 m3:Ohm THEN ResistanceTypeDrySkin</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://homepages.wmich.edu/~bazuinb/SolarGarden/Danger-Electricity.pdf</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ResistanceTypeWetSkin">		
+		<rdfs:label xml:lang="en">Resistance Type Wet Skin</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricalResistance EQUAL 1000 m3:Ohm THEN ResistanceTypeWetSkin</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://homepages.wmich.edu/~bazuinb/SolarGarden/Danger-Electricity.pdf</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ResistanceTypeHandToFoot">		
+		<rdfs:label xml:lang="en">Resistance Type Hand To Foot</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricalResistance BETWEEN 400 AND 600 m3:Ohm THEN ResistanceTypeHandToFoot</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://homepages.wmich.edu/~bazuinb/SolarGarden/Danger-Electricity.pdf</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ResistanceTypeEarToEar">		
+		<rdfs:label xml:lang="en">ResistanceType Ear To Ear</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricalResistance EQUAL 100 m3:Ohm THEN ResistanceTypeEarToEar</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://homepages.wmich.edu/~bazuinb/SolarGarden/Danger-Electricity.pdf</dc:description>		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+  
+   <!-- ################################################ ELECTRICAL POTENTIAL ############################################################################ -->
+	
+	<owl:Class rdf:ID="ElectricalPotential_DC_IEC60038_HighVoltageSupplySystem">		
+		<rdfs:label xml:lang="en">Electrical Potential DC IEC60038 High Voltage Supply System</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricalPotential (DC) GREATER THAN 1500 m3:Volt THEN IEC60038 Voltage range = HighVoltageSupplySystem AND Defining risk = Electrical Arcing</rdfs:comment>
+		<dc:description xml:lang="en">Source: Source: Bachelor Thesis: High voltage components in commercial vehicles [Matti 2017]
+Table Voltage levels according to IEC 60038 (IEC 60038, 2002)</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;ElectricalArcing"/> 	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ElectricalArcing">		
+		<rdfs:label xml:lang="en">Electrical Arcing</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricalPotential (DC) GREATER THAN 1500 m3:Volt THEN IEC60038 Voltage range = HighVoltageSupplySystem AND Defining risk = Electrical Arcing</rdfs:comment>
+		<dc:description xml:lang="en">Source: Source: Bachelor Thesis: High voltage components in commercial vehicles [Matti 2017]
+Table Voltage levels according to IEC 60038 (IEC 60038, 2002)</dc:description>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="ElectricalPotential_DC_IEC60038_LowVoltageSupplySystem">		
+		<rdfs:label xml:lang="en">Electrical Potential DC IEC60038 Low Voltage Supply System</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricalPotential (DC) BETWEEN 120 AND 1500 m3:Volt THEN IEC60038 Voltage range = LowVoltageSupplySystem AND Defining risk = Electrical shock</rdfs:comment>
+		<dc:description xml:lang="en">Source: Source: Bachelor Thesis: High voltage components in commercial vehicles [Matti 2017]
+Table Voltage levels according to IEC 60038 (IEC 60038, 2002)</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;ElectricalShock"/> 	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ElectricalShock">		
+		<rdfs:label xml:lang="en">Electrical shock</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricalPotential (DC) BETWEEN 120 AND 1500 m3:Volt THEN IEC60038 Voltage range = LowVoltageSupplySystem AND Defining risk = Electrical shock</rdfs:comment>
+		<dc:description xml:lang="en">Source: Source: Bachelor Thesis: High voltage components in commercial vehicles [Matti 2017]
+Table Voltage levels according to IEC 60038 (IEC 60038, 2002)</dc:description>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+		<owl:Class rdf:ID="ElectricalPotential_DC_IEC60038_ExtraLowVoltageSupplySystem">		
+		<rdfs:label xml:lang="en">Electrical Potential DC IEC60038 Extra Low Voltage Supply System</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricalPotential (DC) LESS THAN 120 m3:Volt THEN IEC60038 Voltage range = ExtraLowVoltageSupplySystem AND Defining risk = LowRisk</rdfs:comment>
+		<dc:description xml:lang="en">Source: Source: Bachelor Thesis: High voltage components in commercial vehicles [Matti 2017]
+Table Voltage levels according to IEC 60038 (IEC 60038, 2002)</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;LowRisk"/> 	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="LowRisk">		
+		<rdfs:label xml:lang="en">Low Risk</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricalPotential (DC) LESS THAN 120 m3:Volt THEN IEC60038 Voltage range = ExtraLowVoltageSupplySystem AND Defining risk = LowRisk</rdfs:comment>
+		<dc:description xml:lang="en">Source: Source: Bachelor Thesis: High voltage components in commercial vehicles [Matti 2017]
+Table Voltage levels according to IEC 60038 (IEC 60038, 2002)</dc:description>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+   
+   <!-- ################################################ ELECTRICAL CURRENT ############################################################################ -->
+	
+	<owl:Class rdf:ID="ElectricCurrentTingling">		
+		<rdfs:label xml:lang="en">Electric Current Tingling</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricCurrent EQUAL 0.0011 m3:Ampere THEN HumanReaction at 60Hz = Perception - A slight tingling sensation</rdfs:comment>
+		<dc:description xml:lang="en">Source: http://electronicstechnician.tpub.com/14086/css/Amount-Of-Body-Resistance-34.htm</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ElectricCurrentCannotLetGoMuscle">		
+		<rdfs:label xml:lang="en">Electric Current Cannot Let Go Muscle</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricCurrent EQUAL 0.010 m3:Ampere THEN HumanReaction at 60Hz = Can't let go - Arm and hand muscles close involuntary 120 lb. person</rdfs:comment>
+		<dc:description xml:lang="en">Source: http://electronicstechnician.tpub.com/14086/css/Amount-Of-Body-Resistance-34.htm</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ElectricCurrentCannotLetGo">		
+		<rdfs:label xml:lang="en">Electric Current Cannot Let Go</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricCurrent EQUAL 0.016 m3:Ampere THEN HumanReaction at 60Hz = Can't let go - 175 lb. person</rdfs:comment>
+		<dc:description xml:lang="en">Source: http://electronicstechnician.tpub.com/14086/css/Amount-Of-Body-Resistance-34.htm</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ElectricCurrentCannotBreathe">		
+		<rdfs:label xml:lang="en">Electric Current Cannot Breathe</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricCurrent EQUAL 0.018 m3:Ampere THEN HumanReaction at 60Hz = Can't breathe - Paralysis of the chest muscles</rdfs:comment>
+		<dc:description xml:lang="en">Source: http://electronicstechnician.tpub.com/14086/css/Amount-Of-Body-Resistance-34.htm</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ElectricCurrentHeartFibrillation">		
+		<rdfs:label xml:lang="en">Electric Current Heart Fibrillation</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:ElectricCurrent EQUAL 0.065 m3:Ampere THEN HumanReaction at 60Hz = Heart Fibrillation - Rapid irregular contractions of the heart muscles - could be fatal</rdfs:comment>
+		<dc:description xml:lang="en">Source: http://electronicstechnician.tpub.com/14086/css/Amount-Of-Body-Resistance-34.htm</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+  
+  <!-- ################################################ ROOM TEMPERATURE ############################################################################ -->
+	
+	<owl:Class rdf:ID="BelowOrZeroTemperature">		
+		<rdfs:label xml:lang="en">Below Or Zero Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:Temperature lessThan 0 m3:DegreeCelsius THEN BelowOrZeroTemperature</rdfs:comment>
+		<dc:description xml:lang="en">ThinkHome Energy Efficiency in Future Smart Homes [Kofler 2011]</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="LowTemperature">		
+		<rdfs:label xml:lang="en">Low Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:Temperature lessThan 25 m3:DegreeCelsius THEN LowTemperature. Room Temperature is considered as LOW when less than 25 Degree Celcius. This rule has been designed for the WWW Demo Paper 2017</rdfs:comment>
+		<dc:description xml:lang="en">SWoTSuite: A Toolkit for Prototyping End-to-End Semantic Web of Things Applications [Pankesh et al. WWW Demo Paper 2017]</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 	
+		<m3:hasRecommendation rdf:resource="&home;SwitchOffHeating"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Frost">		
+		<rdfs:label xml:lang="en">Frost</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan -25 m3:DegreeCelsius AND lessThan 0 m3:DegreeCelsius THEN Frost</rdfs:comment>
+		<dc:description xml:lang="en">ThinkHome Energy Efficiency in Future Smart Homes [Kofler 2011]</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ExtremeFrost">		
+		<rdfs:label xml:lang="en">Extreme Frost</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature lessThan -25 m3:DegreeCelsius THEN ExtremeFrost</rdfs:comment>
+		<dc:description xml:lang="en">ThinkHome Energy Efficiency in Future Smart Homes [Kofler 2011]</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 				
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ExtremeHeat">		
+		<rdfs:label xml:lang="en">Extreme Heat</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 37 m3:DegreeCelsius THEN ExtremeHeat</rdfs:comment>
+		<dc:description xml:lang="en">ThinkHome Energy Efficiency in Future Smart Homes [Kofler 2011]</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 		
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AboveRoomTemperature">		
+		<rdfs:label xml:lang="en">Above Room Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 25 AND lessThan 30  m3:DegreeCelsius THEN AboveRoomTemperature</rdfs:comment>
+		<dc:description xml:lang="en">ThinkHome Energy Efficiency in Future Smart Homes [Kofler 2011]</dc:description>					
+		<m3:hasRecommendation rdf:resource="&home;SwitchOffHeating"/> 
+		<m3:hasRecommendation rdf:resource="&home;SwitchOnAirConditioning"/> 
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 
+	</owl:Class>
+	
+	<owl:Class rdf:ID="BelowRoomTemperature">		
+		<rdfs:label xml:lang="en">Below Room Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 10 AND lessThan 20 m3:DegreeCelsius THEN BelowRoomTemperature</rdfs:comment>
+		<dc:description xml:lang="en">ThinkHome Energy Efficiency in Future Smart Homes [Kofler 2011]</dc:description>		
+		<m3:hasRecommendation rdf:resource="&home;SwitchOnHeating"/> 
+		<m3:hasRecommendation rdf:resource="&home;SwitchOffAirConditioning"/> 		
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RoomTemperature">		
+		<rdfs:label xml:lang="en">Room Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 20 m3:DegreeCelsius AND lessThan 25 m3:DegreeCelsius THEN RoomTemperature</rdfs:comment>
+		<dc:description xml:lang="en">ThinkHome Energy Efficiency in Future Smart Homes [Kofler 2011]</dc:description>		
+		<m3:hasRecommendation rdf:resource="&m3;NothingAnormal"/> 
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AboveZeroTemperature">		
+		<rdfs:label xml:lang="en">Above Zero Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 0 m3:DegreeCelsius THEN AboveZeroTemperature</rdfs:comment>
+		<dc:description xml:lang="en">ThinkHome Energy Efficiency in Future Smart Homes [Kofler 2011]</dc:description>		
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Heat">		
+		<rdfs:label xml:lang="en">Heat</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 30 m3:DegreeCelsius THEN Heat</rdfs:comment>
+		<dc:description xml:lang="en">ThinkHome Energy Efficiency in Future Smart Homes [Kofler 2011]</dc:description>	
+		<m3:hasRecommendation rdf:resource="&home;SwitchOnAirConditioning"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued> 		
+	</owl:Class>
+  
+  <!-- ################################################ FREQUENCY HERTZ ############################################################################ -->
+	
+	
+	<owl:Class rdf:ID="MusicDoNoteOctave3">		
+		<rdfs:label xml:lang="en">Music Do Note</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Frequency EQUAL 261.3 m3:Hertz THEN MusicDoNoteOctave3</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://www.deleze.name/marcel/physique/musique/GammeTemperee.html</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MusicReNoteOctave3">		
+		<rdfs:label xml:lang="en">Music Re Note</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Frequency EQUAL 293.7 m3:Hertz THEN MusicReNoteOctave3</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://www.deleze.name/marcel/physique/musique/GammeTemperee.html</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MusicMiNoteOctave3">		
+		<rdfs:label xml:lang="en">Music Mi Note</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Frequency EQUAL 329.6 m3:Hertz THEN MusicMiNoteOctave3</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://www.deleze.name/marcel/physique/musique/GammeTemperee.html</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MusicFaNoteOctave3">		
+		<rdfs:label xml:lang="en">Music Fa Note</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Frequency EQUAL 349.2 m3:Hertz THEN MusicFaNoteOctave3</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://www.deleze.name/marcel/physique/musique/GammeTemperee.html</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MusicSolNoteOctave3">		
+		<rdfs:label xml:lang="en">Music Sol Note</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Frequency EQUAL 392 m3:Hertz THEN MusicSolNoteOctave3</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://www.deleze.name/marcel/physique/musique/GammeTemperee.html</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MusicLaNoteOctave3">		
+		<rdfs:label xml:lang="en">Music La Note</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Frequency EQUAL 440 m3:Hertz THEN MusicLaNoteOctave3</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://www.deleze.name/marcel/physique/musique/GammeTemperee.html</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MusicSiNoteOctave3">		
+		<rdfs:label xml:lang="en">Music Si Note</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Frequency EQUAL 439.9 m3:Hertz THEN MusicSiNoteOctave3</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://www.deleze.name/marcel/physique/musique/GammeTemperee.html</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:issued>
+	</owl:Class>
+	
+	<!-- ################################################ LuminousEfficacy ############################################################################ -->
+	
+	<owl:Class rdf:ID="EnergyEfficiencyA">		
+		<rdfs:label xml:lang="en">Energy Efficiency A</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:LuminousEfficacy greaterThan 210 m3:LumenPerWatt THEN EnergyEfficiencyA</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://ec.europa.eu/transparency/regdoc/rep/3/2019/EN/C-2019-1805-F1-EN-ANNEX-1-PART-1.PDF</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EnergyEfficiencyB">		
+		<rdfs:label xml:lang="en">Energy Efficiency B</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:LuminousEfficacy greaterThan 185 m3:LumenPerWatt AND lessThan 210 m3:LumenPerWatt THEN EnergyEfficiencyB</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://ec.europa.eu/transparency/regdoc/rep/3/2019/EN/C-2019-1805-F1-EN-ANNEX-1-PART-1.PDF</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EnergyEfficiencyC">		
+		<rdfs:label xml:lang="en">Energy Efficiency C</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:LuminousEfficacy greaterThan 160 m3:LumenPerWatt AND lessThan 185 m3:LumenPerWatt THEN EnergyEfficiencyC</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://ec.europa.eu/transparency/regdoc/rep/3/2019/EN/C-2019-1805-F1-EN-ANNEX-1-PART-1.PDF</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EnergyEfficiencyD">		
+		<rdfs:label xml:lang="en">Energy Efficiency D</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:LuminousEfficacy greaterThan 135 m3:LumenPerWatt AND lessThan 160 m3:LumenPerWatt THEN EnergyEfficiencyD</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://ec.europa.eu/transparency/regdoc/rep/3/2019/EN/C-2019-1805-F1-EN-ANNEX-1-PART-1.PDF</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EnergyEfficiencyE">		
+		<rdfs:label xml:lang="en">Energy Efficiency E</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:LuminousEfficacy greaterThan 110 m3:LumenPerWatt AND lessThan 135 m3:LumenPerWatt THEN EnergyEfficiencyE</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://ec.europa.eu/transparency/regdoc/rep/3/2019/EN/C-2019-1805-F1-EN-ANNEX-1-PART-1.PDF</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EnergyEfficiencyF">		
+		<rdfs:label xml:lang="en">Energy Efficiency F</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:LuminousEfficacy greaterThan 85 m3:LumenPerWatt AND lessThan 110 m3:LumenPerWatt THEN EnergyEfficiencyF</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://ec.europa.eu/transparency/regdoc/rep/3/2019/EN/C-2019-1805-F1-EN-ANNEX-1-PART-1.PDF</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EnergyEfficiencyG">		
+		<rdfs:label xml:lang="en">Energy Efficiency G</rdfs:label>
+		<rdfs:comment xml:lang="en">Rule: IF m3:LuminousEfficacy lessThan 85 m3:LumenPerWatt THEN EnergyEfficiencyG</rdfs:comment>
+		<dc:description xml:lang="en">Source: https://ec.europa.eu/transparency/regdoc/rep/3/2019/EN/C-2019-1805-F1-EN-ANNEX-1-PART-1.PDF</dc:description>				
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-25</dcterms:issued>
+	</owl:Class>
+	
+	 <!-- ################################################  ############################################################################ -->
+	
+  
+    <!-- Added October 2020 --> 
+    <owl:Class rdf:ID="NormalAveragePowerPerYear">		
+		<rdfs:label xml:lang="en">NormalAveragePowerPerYear</rdfs:label>
+		<rdfs:comment xml:lang="en">According to the U.S. Energy Information Administration, 
+the average household electricity use is 11, 496 kWh per year, or 958 kWh per month.</rdfs:comment>
+		<dc:description xml:lang="en">Source: The Kilo Watt Tips for Understanding Your Electricity Usage [2017]</dc:description>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-04</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-04</dcterms:issued>
+        <m3:hasRecommendation rdf:resource="&home;NotTipYetToReducePower"/> 				
+	</owl:Class>
+	
+	    <owl:Class rdf:ID="NormalAveragePowerPerMonth">		
+		<rdfs:label xml:lang="en">NormalAveragePowerPerMonth</rdfs:label>
+		<rdfs:comment xml:lang="en">According to the U.S. Energy Information Administration, 
+the average household electricity use is 11, 496 kWh per year, or 958 kWh per month.</rdfs:comment>
+		<dc:description xml:lang="en">Source: The Kilo Watt Tips for Understanding Your Electricity Usage [2017]</dc:description>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-04</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-04</dcterms:issued>
+        <m3:hasRecommendation rdf:resource="&home;NotTipYetToReducePower"/> 				
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ElectricBlanketPowerConsumption">		
+		<rdfs:label xml:lang="en">Electric Blanket Power Consumption</rdfs:label>
+		<rdfs:comment xml:lang="en">An electric blanket uses 1 kWh for each night of use.</rdfs:comment>
+		<dc:description xml:lang="en">Source: The Kilo Watt Tips for Understanding Your Electricity Usage [2017]</dc:description>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-04</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-04</dcterms:issued>
+        <m3:hasRecommendation rdf:resource="&home;NotTipYetToReducePower"/> 				
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ElectricDryerPowerConsumption">		
+		<rdfs:label xml:lang="en">Electric Dryer Power Consumption</rdfs:label>
+		<rdfs:comment xml:lang="en">An electric dryer uses 2.7 KWh per load.</rdfs:comment>
+		<dc:description xml:lang="en">Source: The Kilo Watt Tips for Understanding Your Electricity Usage [2017]</dc:description>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-11</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-11</dcterms:issued>
+        <m3:hasRecommendation rdf:resource="&home;UseGarmentDryingRack"/> 				
+	</owl:Class>
+	
+	<owl:Class rdf:ID="UseGarmentDryingRack">		
+		<rdfs:label xml:lang="en">Use Garment Drying Rack</rdfs:label>
+		<rdfs:comment xml:lang="en">Use Garment Drying Rack instead of dryer if possible.</rdfs:comment>
+		<dc:description xml:lang="en">Use Garment Drying Rack instead of dryer if possible.</dc:description>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-11</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-11</dcterms:issued>			
+	</owl:Class>
+	
+	  <owl:Class rdf:ID="NoTipYetToReducePower">		
+		<rdfs:label xml:lang="en">No Tip Yet To Reduce Power</rdfs:label>
+		<rdfs:comment xml:lang="en">No Tip Yet To Reduce Power</rdfs:comment>
+		<dc:description xml:lang="en">No Tip Yet To Reduce Power</dc:description>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-04</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-04</dcterms:issued>
+        <m3:hasRecommendation rdf:resource="&home;NotTipYetToReducePower"/> 				
+	</owl:Class>
+  
+     <!-- Updated october September 2020 --> 
+    <owl:Class rdf:ID="NobodyInTheRoom">		
+		<rdfs:label xml:lang="en">Nobody In The Room</rdfs:label>
+		<rdfs:comment xml:lang="en">Nobody In The Room</rdfs:comment>
+		<dc:description xml:lang="en">Nobody In The Room</dc:description>
+		<rdfs:subClassOf rdf:resource="#Status"/>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:issued>
+        <m3:hasRecommendation rdf:resource="&home;SwitchOffLight"/> 		
+        <m3:hasRecommendation rdf:resource="&home;SwitchOffHeating"/> 		
+        <m3:hasRecommendation rdf:resource="&home;SwitchOffVentilation"/> 
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SomeoneInTheRoom">		
+		<rdfs:label xml:lang="en">Someone In The Room</rdfs:label>
+		<rdfs:comment xml:lang="en">Someone In The Room</rdfs:comment>
+		<dc:description xml:lang="en">Someone In The Room</dc:description>	
+		<rdfs:subClassOf rdf:resource="#Status"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:issued>
+        <m3:hasRecommendation rdf:resource="&home;SwitchOnLight"/> 		
+        <m3:hasRecommendation rdf:resource="&home;SwitchOnHeating"/> 		
+        <m3:hasRecommendation rdf:resource="&home;SwitchOnVentilation"/> 	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WarmHue">		
+		<rdfs:label xml:lang="en">Warm Hue</rdfs:label>
+		<rdfs:comment xml:lang="en">A warm hue (if it is in the evening or at night)</rdfs:comment>
+		<dc:description xml:lang="en"></dc:description>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ColdHue">		
+		<rdfs:label xml:lang="en">Cold Hue</rdfs:label>
+		<rdfs:comment xml:lang="en">A cold hue (if it is in the evening or at night)</rdfs:comment>
+		<dc:description xml:lang="en"></dc:description>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SwitchOffLight">		
+		<rdfs:label xml:lang="en">Switch Off Light</rdfs:label>
+		<rdfs:comment xml:lang="en">Switch Off Light</rdfs:comment>
+		<dc:description xml:lang="en"></dc:description>	
+		<m3:hasRecommendation rdf:resource="&home;NobodyInTheRoom"/> 	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SwitchOnLight">		
+		<rdfs:label xml:lang="en">Switch On Light</rdfs:label>
+		<rdfs:comment xml:lang="en">Switch On Light</rdfs:comment>
+		<dc:description xml:lang="en"></dc:description>	
+		<m3:hasRecommendation rdf:resource="&home;SomeoneInTheRoom"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:issued> 	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SwitchOffHeating">		
+		<rdfs:label xml:lang="en">Switch Off Heating</rdfs:label>
+		<rdfs:comment xml:lang="en">Switch Off Heating</rdfs:comment>
+		<dc:description xml:lang="en"></dc:description>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:issued> 	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SwitchOnHeating">		
+		<rdfs:label xml:lang="en">Switch On Heating</rdfs:label>
+		<rdfs:comment xml:lang="en">Switch On Heating</rdfs:comment>
+		<dc:description xml:lang="en"></dc:description>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:issued> 	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SwitchOffVentilation">		
+		<rdfs:label xml:lang="en">Switch Off Ventilation</rdfs:label>
+		<rdfs:comment xml:lang="en">Switch Off Ventilation</rdfs:comment>
+		<dc:description xml:lang="en"></dc:description>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:issued> 	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SwitchOnVentilation">		
+		<rdfs:label xml:lang="en">Switch On Ventilation</rdfs:label>
+		<rdfs:comment xml:lang="en">Switch Off Ventilation</rdfs:comment>
+		<dc:description xml:lang="en"></dc:description>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-10-18</dcterms:issued> 	
+	</owl:Class>
+	
+	
+	 <!-- OLD --> 
+	 <owl:Class rdf:ID="Status">
+		<rdfs:label xml:lang="en">Status</rdfs:label>
+		<rdfs:comment xml:lang="en">Status to interpret sensor values (e.g., frost)</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Activity">
+		<rdfs:label xml:lang="en">Activity</rdfs:label>
+		<rdfs:comment xml:lang="en">Activity (e.g., sleeping, watchingTV)</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Room">		
+		<rdfs:label xml:lang="en">Room</rdfs:label>
+		<rdfs:comment xml:lang="en">Room</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Office"/>
+		<rdfs:subClassOf rdf:resource="#Home"/>
+		<owl:equivalentClass rdf:resource="&dogont;Room"/>
+		<owl:equivalentClass rdf:resource="&m3;Room"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-20</dcterms:issued>
+	</owl:Class>
+    
+     <owl:Class rdf:ID="Furniture">
+		<rdfs:label xml:lang="en">Furniture</rdfs:label>
+		<rdfs:comment xml:lang="en">Furniture can be air conditioning, heating, etc.</rdfs:comment>
+    </owl:Class>
+
+    
+    
+	
+</rdf:RDF>
